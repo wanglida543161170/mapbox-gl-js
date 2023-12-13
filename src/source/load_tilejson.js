@@ -21,7 +21,7 @@ export default function(options: any, requestManager: RequestManager, language: 
             const result: any = pick(
                 // explicit source options take precedence over TileJSON
                 extend(tileJSON, options),
-                ['tiles', 'minzoom', 'maxzoom', 'attribution', 'mapbox_logo', 'bounds', 'scheme', 'tileSize', 'encoding']
+                ['tiles', 'minzoom', 'maxzoom', 'attribution', 'mapbox_logo', 'bounds', 'scheme', 'tileSize', 'encoding', 'zoomOffset']
             );
 
             if (tileJSON.vector_layers) {

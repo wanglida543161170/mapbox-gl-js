@@ -20,7 +20,7 @@ export function mercatorXfromLng(lng: number): number {
 }
 
 export function mercatorYfromLat(lat: number): number {
-    return (180 - (180 / Math.PI * Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)))) / 360;
+    return (90 - lat) / 360;
 }
 
 export function mercatorZfromAltitude(altitude: number, lat: number): number {
@@ -32,15 +32,14 @@ export function lngFromMercatorX(x: number): number {
 }
 
 export function latFromMercatorY(y: number): number {
-    const y2 = 180 - y * 360;
-    return 360 / Math.PI * Math.atan(Math.exp(y2 * Math.PI / 180)) - 90;
+    return clamp(90 - y * 360, -90, 90);
 }
 
 export function altitudeFromMercatorZ(z: number, y: number): number {
     return z * circumferenceAtLatitude(latFromMercatorY(y));
 }
 
-export const MAX_MERCATOR_LATITUDE = 85.051129;
+export const MAX_MERCATOR_LATITUDE = 90;
 
 export function getLatitudeScale(lat: number): number {
     return Math.cos(degToRad(clamp(lat, -MAX_MERCATOR_LATITUDE, MAX_MERCATOR_LATITUDE)));

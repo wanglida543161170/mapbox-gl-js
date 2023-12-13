@@ -25,17 +25,17 @@ export class CanonicalTileID {
     }
 
     // given a list of urls, choose a url template and return a tile URL
-    url(urls: Array<string>, scheme: ?string): string {
+    url(urls: Array<string>, scheme: ?string, zoomOffset: ?number): string {
         const bbox = getTileBBox(this.x, this.y, this.z);
         const quadkey = getQuadkey(this.z, this.x, this.y);
 
         return urls[(this.x + this.y) % urls.length]
             .replace('{prefix}', (this.x % 16).toString(16) + (this.y % 16).toString(16))
-            .replace(/{z}/g, String(this.z))
+            .replace(/{z}/g, String(this.z + (zoomOffset || 0)))
             .replace(/{x}/g, String(this.x))
-            .replace(/{y}/g, String(scheme === 'tms' ? (Math.pow(2, this.z) - this.y - 1) : this.y))
+            .replace(/{y}/g, String(scheme === 'tms' ? (this.z === 0 ? 0 : (Math.pow(2, this.z - 1) - 1 - this.y)) : this.y))
             .replace('{quadkey}', quadkey)
-            .replace('{bbox-epsg-3857}', bbox);
+            .replace('{bbox-epsg-4490}', bbox);
     }
 
     toString(): string {

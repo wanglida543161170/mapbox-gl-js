@@ -5,7 +5,7 @@ import {asyncAll, extend, bindAll, warnOnce, uniqueId, isSafariWithAntialiasingB
 import browser from '../util/browser.js';
 import window from '../util/window.js';
 import * as DOM from '../util/dom.js';
-import {getImage, getJSON, ResourceType} from '../util/ajax.js';
+import {getImage, getJSON, ResourceType}  from '../util/ajax.js';
 import {RequestManager, getMapSessionAPI, postPerformanceEvent, postMapLoadEvent, AUTH_ERR_MSG, storeAuthState, removeAuthState} from '../util/mapbox.js';
 import Style from '../style/style.js';
 import EvaluationParameters from '../style/evaluation_parameters.js';

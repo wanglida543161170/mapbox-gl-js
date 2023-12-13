@@ -159,6 +159,7 @@ export type VectorSourceSpecification = {
     "attribution"?: string,
     "promoteId"?: PromoteIdSpecification,
     "volatile"?: boolean,
+    "zoomOffset"?: number
     [_: string]: mixed
 }
 
@@ -173,6 +174,7 @@ export type RasterSourceSpecification = {
     "scheme"?: "xyz" | "tms",
     "attribution"?: string,
     "volatile"?: boolean,
+    "zoomOffset"?: number
     [_: string]: mixed
 }
 
@@ -187,6 +189,7 @@ export type RasterDEMSourceSpecification = {
     "attribution"?: string,
     "encoding"?: "terrarium" | "mapbox",
     "volatile"?: boolean,
+    "zoomOffset"?: number
     [_: string]: mixed
 }
 

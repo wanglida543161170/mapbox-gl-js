@@ -690,6 +690,11 @@
         }
       }
     },
+    "zoomOffset": {
+      "type": "number",
+      "default": 0,
+      "doc": "The zoom number used in tile URLs will be offset with this value."
+    },
     "*": {
       "type": "*",
       "doc": "Other keys to configure the data source."
@@ -771,6 +776,11 @@
         }
       }
     },
+    "zoomOffset": {
+      "type": "number",
+      "default": 0,
+      "doc": "The zoom number used in tile URLs will be offset with this value."
+    },
     "*": {
       "type": "*",
       "doc": "Other keys to configure the data source."
@@ -851,6 +861,11 @@
           "ios": "5.10.0"
         }
       }
+    },
+    "zoomOffset": {
+      "type": "number",
+      "default": 0,
+      "doc": "The zoom number used in tile URLs will be offset with this value."
     },
     "*": {
       "type": "*",
